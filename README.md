@@ -11,7 +11,7 @@ A aplicação **SimplesVet Lite** está evoluindo e precisa de 3 novas funcional
 
 ![missaoimpossivel4.gif](img/missaoimpossivel4.gif)
 
-##Go further! 
+## Go further! 
 Se quiser ir **além** e mostrar que *Tom Cruise* é licuri, aqui vão algumas coisas divertidas:
  
 1. No upload da imagem do animal, coloque um recurso que permita o usuário gerar um `thumb` com crop e dimensões `50x50px`. 
@@ -21,12 +21,12 @@ Fique livre para propor/implementar outras novidades bacanas. Seja de funcionali
 
 ![missaoimpossivel5.gif](img/missaoimpossivel5.gif)
 
-##Como entregar
+## Como entregar
 
 1. Faça um fork desse repositório
 2. Publique a aplicação rodando em algum servidor seu ou um free como o [Heroku](https://www.heroku.com/).
 
-##Hard mode on!
+## Hard mode on!
 
 1. Ta afim de se destacar? Crie uma conta na [AWS (é free por 1 ano)](https://aws.amazon.com/pt/free/) e crie toda infra pra aplicação lá... Para que possamos validar, nos passe um usuário que possa visualizar essa infra. 
 2. O ideal é que as imagens não fiquem no servidor de aplicação, então as imagens dos animais devem ir para um bucket no `AWS S3`. =)
