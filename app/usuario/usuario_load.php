@@ -15,10 +15,10 @@ $start = (($page - 1) * $rp);
 //-------------------------------- Filtros -----------------------------------//
 $filter = new GFilter();
 
-$usu_var_nome = $_POST['p__usu_var_nome'];
+$pro_var_nome = $_POST['p__usu_var_nome'];
 
-if (!empty($usu_var_nome)) {
-    $filter->addFilter('AND', 'usu_var_nome', 'LIKE', 's', '%' . str_replace(' ', '%', $usu_var_nome) . '%');
+if (!empty($pro_var_nome)) {
+    $filter->addFilter('AND', 'usu_var_nome', 'LIKE', 's', '%' . str_replace(' ', '%', $pro_var_nome) . '%');
 }
 
 //-------------------------------- Filtros -----------------------------------//

@@ -24,7 +24,7 @@ class GHeaderParent {
 
         //$this->_libs = getLibsDefault();
         $this->_libs = array_merge(getLibsDefault(), getLibsTheme());
-
+        
         $libDefault = explode(',', SYS_LIB_DEFAULT);
         $this->addLib($libDefault);
 

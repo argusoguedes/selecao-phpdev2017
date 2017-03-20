@@ -24,6 +24,7 @@ if (!empty($ani_var_nome)) {
 //-------------------------------- Filtros -----------------------------------//
 
 try {
+    
     if ($type == 'C') {
         $query = "SELECT count(1) FROM vw_animal " . $filter->getWhere();
         $param = $filter->getParam();
@@ -37,7 +38,7 @@ try {
         $filter->setOrder(array('ani_var_nome' => 'ASC'));
         $filter->setLimit($start, $rp);
 
-        $query = "SELECT ani_int_codigo, ani_var_nome, ani_var_vivo, ani_dec_peso, ani_var_raca FROM vw_animal " . $filter->getWhere();
+        $query = "SELECT ani_int_codigo, ani_var_nome, ani_var_vivo, ani_dec_peso, ani_var_raca, ani_var_foto FROM vw_animal " . $filter->getWhere();
         $param = $filter->getParam();
 
         $mysql->execute($query, $param);
@@ -50,6 +51,7 @@ try {
             $html .= '<th>Vivo</th>';
             $html .= '<th>Peso</th>';
             $html .= '<th>Raça</th>';
+            $html .= '<th>Foto</th>';
             $html .= '<th class="__acenter hidden-phone" width="100px">Actions</th>';
             $html .= '</tr>';
             $html .= '</thead>';
@@ -61,9 +63,20 @@ try {
                 $html .= '<td>' . $mysql->res['ani_var_vivo'] . '</td>';
                 $html .= '<td>' . GF::numberFormat($mysql->res['ani_dec_peso'], false, false, false,3) . '</td>';
                 $html .= '<td>' . $mysql->res['ani_var_raca'] . '</td>';
+                
+                if($mysql->res['ani_var_foto'] != null && $mysql->res['ani_var_foto'] != "") {
+                    $nameFile = explode(".", $mysql->res['ani_var_foto']);
+                    $thumb = $nameFile[0] . ".thumb." . $nameFile[1];
+                    $url = "http://$_SERVER[HTTP_HOST]/simplesvet/fotos/$thumb";
+                    $html .= '<td><img src="' . $url . '" id="foto" width="50px height="50px"/></td>';
+                } else {
+                    $html .= '<td></td>';
+                }
+                    
 
                 //<editor-fold desc="Actions">
                     $html .= '<td class="__acenter hidden-phone acoes">';
+                    $html .= $form->addButton('l__btn_editar', '<i class="fa fa-medkit"></i>', array('class' => 'btn btn-small btn-icon-only l__btn_vacina', 'title' => 'Vacinar'));
                     $html .= $form->addButton('l__btn_editar', '<i class="fa fa-pencil"></i>', array('class' => 'btn btn-small btn-icon-only l__btn_editar', 'title' => 'Edit'));
                     $html .= $form->addButton('l__btn_excluir', '<i class="fa fa-trash"></i>', array('class' => 'btn btn-small btn-icon-only l__btn_excluir', 'title' => 'Remove'));
                     $html .= '</td>';

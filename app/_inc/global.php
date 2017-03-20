@@ -18,8 +18,11 @@ session_start();
             }
         }
     }
-    define('URL_SYS', 'http://' . $_SERVER['SERVER_NAME'] . '/' . $complementoPasta);
+    //define('URL_SYS', 'http://' . $_SERVER['SERVER_NAME'] . '/' . $complementoPasta);
+	define('URL_SYS', '/simplesvet/app/');
     define('ROOT_SYS', str_replace('_inc', '', dirname(__FILE__)));
+	
+
 // --
 
 

@@ -57,3 +57,4 @@ $app->delete('/usuarios/{usu_int_codigo}', function (Request $request, Response 
 
 	return $response->withJson($data, $code);
 });
+?>

@@ -37,6 +37,9 @@ function getLibsDefault() {
         ),
         'spinner' => array(
             URL_STATIC_GN . 'js/jquery.spinners.min.js'
+        ),
+        'binary' => array(
+            URL_STATIC_GN . 'js/jquery.binarytransport.js'
         )
     );
 }

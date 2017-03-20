@@ -4,7 +4,7 @@ require_once '../_inc/global.php';
 $form = new GForm();
 
 $header = new GHeader('Animais');
-$header->addLib(array('paginate', 'maskMoney'));
+$header->addLib(array('paginate', 'maskMoney', 'select2', 'binary'));
 $header->show(false, 'animal/animal.php');
 // ---------------------------------- Header ---------------------------------//
 
@@ -25,6 +25,8 @@ $html .= $paginate->get();
 $html .= '</div>'; //divTable
 $html .= getWidgetFooter();
 echo $html;
+
+$html .= '<input id="url" type="hidden" value="' . "http://$_SERVER[HTTP_HOST]/simplesvet/fotos/" . '">';
 
 echo '<div id="divForm" class="row divForm">';
 include 'animal_form.php';
@@ -66,6 +68,11 @@ $footer->show();
 
             showForm('divForm', 'ins', 'Adicionar');
         });
+        
+        $(document).on('click', '.l__btn_vacina, tr.linhaRegistro td:not([class~="acoes"])', function() {
+            
+         });
+        
         $(document).on('click', '.l__btn_editar, tr.linhaRegistro td:not([class~="acoes"])', function() {
             var ani_int_codigo = $(this).parents('tr.linhaRegistro').attr('id');
 
@@ -74,6 +81,10 @@ $footer->show();
 
             loadForm(URL_API + 'animais/' + ani_int_codigo, function(json) {
                 $('#ani_dec_peso').val(numberFormat(json.ani_dec_peso,3));
+               
+                var foto = json.ani_var_foto.split(".");
+                $("#foto").prop("src", foto[0] + ".thumb." + foto[1]);
+                
                 showForm('divForm', 'upd', 'Editar');
             });
         });

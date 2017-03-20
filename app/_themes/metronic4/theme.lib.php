@@ -111,6 +111,10 @@ function getLibsTheme() {
         'ckeditor' => array(
             URL_SYS_THEME . '_js/ckeditor/ckeditor.js',
             URL_SYS_THEME . '_js/ckeditor/adapters/jquery.js'
+        ),
+        'selec2' => array(
+            URL_SYS_THEME . '_js/select2-4.0.3/dist/js/select2.full.min.js',
+            URL_SYS_THEME . '_js/select2-4.0.3/dist/css/select2.min.css'
         )
     );
 }

@@ -85,6 +85,12 @@
                         return '<b>' + nameField + '</b> é inválido!<br>';
                     }
                     break;
+                case "telefone":
+                    if (strip_tags(trim(jQuery("#" + form + " #" + idField).val())) == "") {
+                        setFocus(idField, form);
+                        return '<b>' + nameField + '</b> é obrigatório!<br>';
+                    }
+                    break;
                 case "user":
                     if (jQuery("#" + form + " #" + idField).val().length < 3) {
                         setFocus(idField, form);
